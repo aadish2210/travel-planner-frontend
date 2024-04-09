@@ -1,6 +1,7 @@
 import React from 'react'
 import { Navigate } from 'react-router-dom';
 import {Navbar, NavbarBrand, NavbarContent, NavbarItem, Link, Button} from "@nextui-org/react";
+import Welcome from './Welcome';
 const Header = () => {
   return (
     <div>

@@ -9,10 +9,15 @@ import {
 import Authenticate from './components/Authenticate.jsx';
 import Destinations from './components/Destinations.jsx';
 import City from './components/City.jsx';
+import Welcome from './components/Welcome.jsx';
 const router = createBrowserRouter([{
   path : "/",
   element : <App />,
   children : [
+    {
+      path : "/",
+      element :  <Welcome/>
+    },
     {
       path : "/user",
       element : <Authenticate/>
