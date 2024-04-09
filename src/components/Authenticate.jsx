@@ -1,7 +1,9 @@
 import React from 'react'
 import {Input , Button} from "@nextui-org/react";
 import axios from 'axios';
+import { useNavigate } from "react-router-dom";
 const Authenticate = () => {
+  const navigate = useNavigate();
  const [name,setName] = React.useState("");
  const [password ,  setPassword] = React.useState("");
  const [email , setEmail] = React.useState("");
@@ -14,33 +16,36 @@ const Authenticate = () => {
     "password" : password
     })
     .then(function (response) {
-    console.log(response);
+      navigate("/destinations")
+      console.log(response)
     })
    .catch(function (error) {
-    console.log(error);
+      console.log(error);
     });
     }
     else{
-      if(buttonText=="Sign up"){
-        axios.post('http://localhost:3000/login', {
-       "email": email,
-       "password" : password
-       })
-       .then(function (response) {
-        if(response.success) {
-          console.log("Logged in");
-        }
-       })
-      .catch(function (error) {
-       console.log(error);
-       });
-       }
+      navigate("/destinations");
+      // if(buttonText=="Login"){
+      //   axios.post('http://localhost:3000/login', {
+      //  "email": email,
+      //  "password" : password
+      //  })
+      //  .then(function (response) {
+      //   if(response.success) {
+      //     console.log("Logged in");
+      //   }
+      //   console.log("logged")
+      //  })
+      // .catch(function (error) {
+      //  console.log(error);
+      //  });
+      //  }
     }
  }
 
   return (
     <div>
-        <section className="bg-gray-50 dark:bg-gray-900">
+        <section className="">
         <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
     
         <div className="flex w-auto  justify-center  bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">

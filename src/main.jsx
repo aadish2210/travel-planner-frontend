@@ -7,6 +7,8 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import Authenticate from './components/Authenticate.jsx';
+import Destinations from './components/Destinations.jsx';
+import City from './components/City.jsx';
 const router = createBrowserRouter([{
   path : "/",
   element : <App />,
@@ -14,6 +16,14 @@ const router = createBrowserRouter([{
     {
       path : "/user",
       element : <Authenticate/>
+    },
+    {
+      path : "/destinations",
+      element : <Destinations/>
+    },
+    {
+      path : "/destinations/:desId",
+      element : <City/>
     }
   ]
 }
