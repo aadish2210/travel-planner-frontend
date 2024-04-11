@@ -1,11 +1,12 @@
 import React from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams , useNavigate } from 'react-router-dom'
 import axios from "axios"
 import {Button, Input} from "@nextui-org/react";
 import {Card, CardHeader} from "@nextui-org/react";
 import {Popover, PopoverTrigger, PopoverContent} from "@nextui-org/react";
 const City = () => { 
-  const {desId} = useParams();
+  const navigate = useNavigate();
+  const {desId , userId} = useParams();
   const [placesData , setPlacesData] = React.useState([]);
   const [userData , setUserData] = React.useState([]);
   const [date,setData] = React.useState("")
@@ -27,9 +28,9 @@ const City = () => {
   ]
 
   React.useEffect(() => {
-    //     axios.get(`http://localhost:3000/getDestination/${desId}`)
+    //     axios.get(`http://localhost:3000/getDestinations/${desId}`)
     //     .then(function (response) {
-    //     setPlacesData(dummy);
+    //     setPlacesData(response);
     //   });
     setPlacesData(dummy);
   },[])
@@ -38,13 +39,30 @@ const City = () => {
   }
   
   function handleAdd(id){
-    userData.push({placeId : id , date});
+    userData.push({userId : Number(userId) , placeId : id , date});
     setUserData(userData);
-    console.log(userData);
+    //console.log(userData);
   } 
 
   const handleSubmit = () => {
-    console.log("post request sent to pearl!")
+    navigate(`/hotel/${userId}`)
+    //console.log("post request sent to pearl!")
+    //console.log(userData);
+    // axios.post('http://localhost:3000/insertPlaces', {
+    //   userData
+    //   })
+    //   .then(function (response) {
+    //     if(response.data.success){
+    //       navigate(`/hotel/${userId}`)
+    //     }
+    //   })
+    //  .catch(function (error) {
+    //     console.log(error);
+    //   });
+  }
+
+  const handleReset = () => {
+    setUserData([]);
   }
 
   return (
@@ -68,7 +86,10 @@ const City = () => {
         </Popover>
         </div>
     ))}  
+      <div className='flex gap-5'>
        <Button onClick={handleSubmit} color='success' variant="ghost" className='mt-3'>Submit</Button>
+       <Button onClick={handleReset} color='success' variant="ghost" className='mt-3'>Reset</Button>
+      </div>
     </div>
   )
 }

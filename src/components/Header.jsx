@@ -11,10 +11,12 @@ const Header = () => {
       </NavbarBrand>
       <NavbarContent justify="end">
         <NavbarItem className="visible lg:flex" color="primary">
-          <Link href="user">Login</Link>
+        <Button as={Link} color="success"  variant="ghost" href="/user">
+            Log In
+          </Button>
         </NavbarItem>
         <NavbarItem>
-          <Button as={Link} color="primary"  variant="flat" href="/user">
+          <Button as={Link} color="success"  variant="ghost" href="/user">
             Sign Up
           </Button>
         </NavbarItem>

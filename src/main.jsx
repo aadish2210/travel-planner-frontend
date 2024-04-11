@@ -10,6 +10,7 @@ import Authenticate from './components/Authenticate.jsx';
 import Destinations from './components/Destinations.jsx';
 import City from './components/City.jsx';
 import Welcome from './components/Welcome.jsx';
+import Hotel from './components/Hotel.jsx';
 const router = createBrowserRouter([{
   path : "/",
   element : <App />,
@@ -23,12 +24,16 @@ const router = createBrowserRouter([{
       element : <Authenticate/>
     },
     {
-      path : "/destinations",
+      path : "/destinations/:userId",
       element : <Destinations/>
     },
     {
-      path : "/destinations/:desId",
+      path : "/destinations/:userId/:desId",
       element : <City/>
+    },
+    {
+      path : "/hotel/:userId",
+      element : <Hotel/>
     }
   ]
 }

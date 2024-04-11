@@ -1,10 +1,11 @@
 import React from 'react'
-import {Card, CardHeader} from "@nextui-org/react";
-import { useNavigate } from "react-router-dom";
+import {Card, CardHeader , Spinner} from "@nextui-org/react";
+import { useNavigate ,useParams } from "react-router-dom";
 import axios from 'axios';
 const Destinations = () => {
   const navigate = useNavigate();
   const [destinationData , setDestinationData] = React.useState([])
+  const {userId} = useParams();
   let dummy = [
     {
         "Destinations_Id": 1,
@@ -44,18 +45,22 @@ const Destinations = () => {
     }
 ]
   React.useEffect(() => {
-    //http://localhost:3000/getDestinations
+    // axios.get("http://localhost:3000/getDestinations")
+    // .then(function (response) {
+    // setDestinationData(response);
+    // });
     axios.get("https://dummyjson.com/products")
     .then(function (response) {
     setDestinationData(dummy);
-  });
+    });
   },[])
 
   function handlePress(id){
-    navigate(`/destinations/${id}`)
+    navigate(`/destinations/${userId}/${id}`)
   }
   return (
     <div className='m-10 flex flex-col justify-start items-center h-[100vh] gap-5 '>
+    {destinationData.length==0 && <Spinner/>}
     {destinationData.length!=0 && destinationData.map((item) => (
       <Card className="py-4 w-6/12 " key={item.Destinations_Id} isPressable onPress={() => handlePress(item.Destinations_Id)}>
       <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">

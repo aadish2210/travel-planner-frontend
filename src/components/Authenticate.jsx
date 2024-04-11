@@ -4,6 +4,7 @@ import axios from 'axios';
 import { useNavigate } from "react-router-dom";
 const Authenticate = () => {
   const navigate = useNavigate();
+  let userId;
  const [name,setName] = React.useState("");
  const [password ,  setPassword] = React.useState("");
  const [email , setEmail] = React.useState("");
@@ -16,7 +17,8 @@ const Authenticate = () => {
     "password" : password
     })
     .then(function (response) {
-      navigate("/destinations")
+      setButtonText("Login");
+      // navigate("/user")
       console.log(response)
     })
    .catch(function (error) {
@@ -24,22 +26,28 @@ const Authenticate = () => {
     });
     }
     else{
-      navigate("/destinations");
-      // if(buttonText=="Login"){
-      //   axios.post('http://localhost:3000/login', {
-      //  "email": email,
-      //  "password" : password
-      //  })
-      //  .then(function (response) {
-      //   if(response.success) {
-      //     console.log("Logged in");
-      //   }
-      //   console.log("logged")
-      //  })
-      // .catch(function (error) {
-      //  console.log(error);
-      //  });
-      //  }
+      navigate("/destinations/1");
+      // // if(buttonText=="Login"){
+      // //   axios.post('http://localhost:3000/login', {
+      // //  "email": email,
+      // //  "password" : password
+      // //  })
+      // //  .then(function (response) {
+      // //   if(response.success) {
+      // //     console.log("Logged in");
+      //       axios.get(`http://localhost:3000/getUserId/${email}`)
+      //       .then(function (response) {
+      //         userId = response[0].User_id;
+      //         navigate(`/destinations/${userId}`)
+      //        });
+             
+      // //   }
+      // //   console.log("logged")
+      // //  })
+      // // .catch(function (error) {
+      // //  console.log(error);
+      // //  });
+      // //  }
     }
  }
 
