@@ -19,7 +19,7 @@ const Authenticate = () => {
     .then(function (response) {
       setButtonText("Login");
       // navigate("/user")
-      console.log(response)
+      //console.log(response)
     })
    .catch(function (error) {
       console.log(error);
@@ -33,11 +33,11 @@ const Authenticate = () => {
       // //  "password" : password
       // //  })
       // //  .then(function (response) {
-      // //   if(response.success) {
+      // //   if(response.data.success) {
       // //     console.log("Logged in");
       //       axios.get(`http://localhost:3000/getUserId/${email}`)
       //       .then(function (response) {
-      //         userId = response[0].User_id;
+      //         userId = response.data[0].User_Id;
       //         navigate(`/destinations/${userId}`)
       //        });
              

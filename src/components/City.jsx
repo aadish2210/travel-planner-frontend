@@ -30,7 +30,7 @@ const City = () => {
   React.useEffect(() => {
     //     axios.get(`http://localhost:3000/getDestinations/${desId}`)
     //     .then(function (response) {
-    //     setPlacesData(response);
+    //     setPlacesData(response.data);
     //   });
     setPlacesData(dummy);
   },[])

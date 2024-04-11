@@ -47,7 +47,7 @@ const Destinations = () => {
   React.useEffect(() => {
     // axios.get("http://localhost:3000/getDestinations")
     // .then(function (response) {
-    // setDestinationData(response);
+    // setDestinationData(response.data);
     // });
     axios.get("https://dummyjson.com/products")
     .then(function (response) {
