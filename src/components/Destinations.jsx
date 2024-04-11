@@ -59,7 +59,7 @@ const Destinations = () => {
     navigate(`/destinations/${userId}/${id}`)
   }
   return (
-    <div className='m-10 flex flex-col justify-start items-center h-[100vh] gap-5 '>
+    <div className='m-10 flex flex-col justify-center items-center h-[100vh] gap-5 '>
     {destinationData.length==0 && <Spinner/>}
     {destinationData.length!=0 && destinationData.map((item) => (
       <Card className="py-4 w-6/12 " key={item.Destinations_Id} isPressable onPress={() => handlePress(item.Destinations_Id)}>

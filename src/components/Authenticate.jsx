@@ -50,7 +50,9 @@ const Authenticate = () => {
       // //  }
     }
  }
-
+ const handleForgotPassword = () => {
+  console.log("forget password module here")
+ }
   return (
     <div>
         <section className="">
@@ -72,7 +74,7 @@ const Authenticate = () => {
                     <Input type="password" label="Password" onValueChange={setPassword}/>
                   </div>
                   <div className="flex items-center justify-between">
-                      <a href="#" className="text-sm font-medium text-primary-600 hover:underline dark:text-primary-500">Forgot password?</a>
+                      <Button color='white' className="text-blue-700 hover:underline" onClick={handleForgotPassword}>Forgot password?</Button>
                   </div>
                   <Button className='w-auto'variant='ghost' onClick={handleSubmit}>{buttonText}</Button>
                   <p className="text-sm font-light text-gray-500 dark:text-gray-400">
