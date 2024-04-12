@@ -4,7 +4,7 @@ import {Navbar, NavbarBrand, NavbarContent, NavbarItem, Link, Button} from "@nex
 import Welcome from './Welcome';
 const Header = () => {
   return (
-    <div>
+    <div >
       <Navbar className="bg-transparent w-12/12">
       <NavbarBrand>
         <p className="font-bold text-2xl text-inherit">Search Space</p>

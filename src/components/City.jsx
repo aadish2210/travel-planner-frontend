@@ -45,7 +45,7 @@ const City = () => {
   } 
 
   const handleSubmit = () => {
-    navigate(`/hotel/${userId}`)
+    navigate(`/hotel/${desId}/${userId}`)
     //console.log("post request sent to pearl!")
     //console.log(userData);
     // axios.post('http://localhost:3000/insertPlaces', {
@@ -53,7 +53,7 @@ const City = () => {
     //   })
     //   .then(function (response) {
     //     if(response.data.success){
-    //       navigate(`/hotel/${userId}`)
+    //       navigate(`/hotel/${desId}/${userId}`)
     //     }
     //   })
     //  .catch(function (error) {

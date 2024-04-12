@@ -2,6 +2,7 @@ import React from 'react'
 import {Input , Button} from "@nextui-org/react";
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
+import ForgotPassword from './ForgotPassword';
 const Authenticate = () => {
   const navigate = useNavigate();
   let userId;
@@ -9,6 +10,7 @@ const Authenticate = () => {
  const [password ,  setPassword] = React.useState("");
  const [email , setEmail] = React.useState("");
  const [buttonText , setButtonText] = React.useState("Login"); 
+ const [flag,setFlag] = React.useState(false);
  const handleSubmit = () =>{
     if(buttonText=="Sign up"){
      axios.post('http://localhost:3000/signup', {
@@ -50,14 +52,11 @@ const Authenticate = () => {
       // //  }
     }
  }
- const handleForgotPassword = () => {
-  console.log("forget password module here")
- }
-  return (
+
+  return flag ? <ForgotPassword/> : (
     <div>
         <section className="">
         <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
-    
         <div className="flex w-auto  justify-center  bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
           <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
               <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
@@ -74,7 +73,7 @@ const Authenticate = () => {
                     <Input type="password" label="Password" onValueChange={setPassword}/>
                   </div>
                   <div className="flex items-center justify-between">
-                      <Button color='white' className="text-blue-700 hover:underline" onClick={handleForgotPassword}>Forgot password?</Button>
+                      <Button color='white' className="text-blue-700 hover:underline" onClick={()=> setFlag(true)}>Forgot password?</Button>
                   </div>
                   <Button className='w-auto'variant='ghost' onClick={handleSubmit}>{buttonText}</Button>
                   <p className="text-sm font-light text-gray-500 dark:text-gray-400">

@@ -11,6 +11,7 @@ import Destinations from './components/Destinations.jsx';
 import City from './components/City.jsx';
 import Welcome from './components/Welcome.jsx';
 import Hotel from './components/Hotel.jsx';
+import Checkout from './components/Checkout.jsx';
 const router = createBrowserRouter([{
   path : "/",
   element : <App />,
@@ -32,8 +33,12 @@ const router = createBrowserRouter([{
       element : <City/>
     },
     {
-      path : "/hotel/:userId",
+      path : "/hotel/:desId/:userId",
       element : <Hotel/>
+    },
+    {
+      path : "/checkout",
+      element : <Checkout/>
     }
   ]
 }
