@@ -49,14 +49,14 @@ const Hotel = () => {
   ];
 
     React.useEffect(() => {
-        // axios.get(`http://localhost:3000/getHotels/${desId}`)
-        // .then(function (response) {
-        // setHotelData(response.data);
-        // });
-        axios.get("https://dummyjson.com/products")
+        axios.get(`http://localhost:3000/getHotels/${desId}`)
         .then(function (response) {
-        setHotelData(dummy);
+        setHotelData(response.data);
         });
+        // axios.get("https://dummyjson.com/products")
+        // .then(function (response) {
+        // setHotelData(dummy);
+        // });
       },[])
     
 
@@ -67,20 +67,20 @@ const Hotel = () => {
         })
       }
       const handleProceed = () => {
-        console.log(hotel);
-        navigate("/checkout")
-        // axios.post('http://localhost:3000/updateItinerary', {
-        //    hotel
-        // })
-        // .then(function (response) {
-        //     if(response.data.success){
-        //       navigate(`/checkout`)
-        //     }
-        //  })
-        // .catch(function (error) {
-        //    console.log(error);
-        // });
+        //navigate("/checkout")
+        axios.post('http://localhost:3000/updateItinerary', {
+           "Hotel_Id" : hotel,
+        })
+        .then(function (response) {
+            if(response.data.success){
+              navigate(`/checkout`)
+            }
+         })
+        .catch(function (error) {
+           console.log(error);
+        });
       }
+
   return (
     <div className='flex flex-col items-center justify-center h-[100vh] gap-5'>
         {hotelData.length!=0 && <Dropdown>

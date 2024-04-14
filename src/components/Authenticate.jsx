@@ -28,28 +28,28 @@ const Authenticate = () => {
     });
     }
     else{
-      navigate("/destinations/1");
-      // // if(buttonText=="Login"){
-      // //   axios.post('http://localhost:3000/login', {
-      // //  "email": email,
-      // //  "password" : password
-      // //  })
-      // //  .then(function (response) {
-      // //   if(response.data.success) {
-      // //     console.log("Logged in");
-      //       axios.get(`http://localhost:3000/getUserId/${email}`)
-      //       .then(function (response) {
-      //         userId = response.data[0].User_Id;
-      //         navigate(`/destinations/${userId}`)
-      //        });
+      //navigate("/destinations/1");
+      if(buttonText=="Login"){
+        axios.post('http://localhost:3000/login', {
+       "email": email,
+       "password" : password
+       })
+       .then(function (response) {
+        if(response.data.success) {
+          console.log("Logged in");
+            axios.get(`http://localhost:3000/getUserId/${email}`)
+            .then(function (response) {
+              userId = response.data[0].User_Id;
+              navigate(`/destinations/${userId}`)
+             });
              
-      // //   }
-      // //   console.log("logged")
-      // //  })
-      // // .catch(function (error) {
-      // //  console.log(error);
-      // //  });
-      // //  }
+        }
+        console.log("logged")
+       })
+      .catch(function (error) {
+       console.log(error);
+       });
+       }
     }
  }
 

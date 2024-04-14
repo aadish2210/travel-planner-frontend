@@ -28,11 +28,11 @@ const City = () => {
   ]
 
   React.useEffect(() => {
-    //     axios.get(`http://localhost:3000/getDestinations/${desId}`)
-    //     .then(function (response) {
-    //     setPlacesData(response.data);
-    //   });
-    setPlacesData(dummy);
+        axios.get(`http://localhost:3000/getDestinations/${desId}`)
+        .then(function (response) {
+        setPlacesData(response.data);
+      });
+    //setPlacesData(dummy);
   },[])
 
   const handlePress = () => {
@@ -45,20 +45,20 @@ const City = () => {
   } 
 
   const handleSubmit = () => {
-    navigate(`/hotel/${desId}/${userId}`)
-    //console.log("post request sent to pearl!")
-    //console.log(userData);
-    // axios.post('http://localhost:3000/insertPlaces', {
-    //   userData
-    //   })
-    //   .then(function (response) {
-    //     if(response.data.success){
-    //       navigate(`/hotel/${desId}/${userId}`)
-    //     }
-    //   })
-    //  .catch(function (error) {
-    //     console.log(error);
-    //   });
+    //navigate(`/hotel/${desId}/${userId}`)
+    console.log("post request sent to pearl!")
+    console.log(userData);
+    axios.post('http://localhost:3000/insertPlaces', {
+      userData
+      })
+      .then(function (response) {
+        if(response.data.success){
+          navigate(`/hotel/${desId}/${userId}`)
+        }
+      })
+     .catch(function (error) {
+        console.log(error);
+      });
   }
 
   const handleReset = () => {

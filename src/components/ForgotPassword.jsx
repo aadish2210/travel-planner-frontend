@@ -7,17 +7,17 @@ const ForgotPassword = () => {
     const [password, setPassword] = React.useState();
     const [flag , setFlag] = React.useState(false);
     const handleSubmit = () => {
-        setFlag(true)
-        // axios.post('http://localhost:3000/resetPassword', {
-        // "email": email,
-        // "password" : password
-        //  })
-        // .then(function (response) {
-        //     if(response.data.success) setFlag(true);
-        // })
-        // .catch(function (error) {
-        // console.log(error);
-        // });
+        //setFlag(true)
+        axios.post('http://localhost:3000/resetPassword', {
+        "email": email,
+        "password" : password
+         })
+        .then(function (response) {
+            if(response.data.success) setFlag(true);
+        })
+        .catch(function (error) {
+        console.log(error);
+        });
     }
   return (
     <section className="">

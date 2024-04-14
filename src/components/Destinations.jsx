@@ -45,14 +45,14 @@ const Destinations = () => {
     }
 ]
   React.useEffect(() => {
-    // axios.get("http://localhost:3000/getDestinations")
-    // .then(function (response) {
-    // setDestinationData(response.data);
-    // });
-    axios.get("https://dummyjson.com/products")
+    axios.get("http://localhost:3000/getDestinations")
     .then(function (response) {
-    setDestinationData(dummy);
+    setDestinationData(response.data);
     });
+    // axios.get("https://dummyjson.com/products")
+    // .then(function (response) {
+    // setDestinationData(dummy);
+    // });
   },[])
 
   function handlePress(id){
