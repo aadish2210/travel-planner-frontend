@@ -12,6 +12,7 @@ import City from './components/City.jsx';
 import Welcome from './components/Welcome.jsx';
 import Hotel from './components/Hotel.jsx';
 import Checkout from './components/Checkout.jsx';
+import CheckoutPlaces from './components/CheckoutPlaces.jsx';
 const router = createBrowserRouter([{
   path : "/",
   element : <App />,
@@ -39,6 +40,10 @@ const router = createBrowserRouter([{
     {
       path : "/checkout",
       element : <Checkout/>
+    },
+    {
+      path : "/checkout/:Itinerary_Id",
+      element : <CheckoutPlaces/>
     }
   ]
 }

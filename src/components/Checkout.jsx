@@ -1,28 +1,48 @@
 import React from 'react'
 import axios from "axios";
-import {Card, CardHeader, Image,Spinner} from "@nextui-org/react";
+import {Card, CardHeader, Image,Spinner , Button} from "@nextui-org/react";
+import {useNavigate} from "react-router-dom";
 const Checkout = () => {
+  const navigate = useNavigate();
   const [list,setList] = React.useState([]);
   let dummy = [
     {
-      Destination_Id : 1,
-      Itinerary_Id : 1,
-      Destination_Name : "Paris",
+        "Itinerary_Id": 1,
+        "Destinations_Id": 1,
+        "Destination_Name": "Rome"
     },
     {
-      Destination_Id : 2,
-      Itinerary_Id : 2,
-      Destination_Name : "New York",
+        "Itinerary_Id": 2,
+        "Destinations_Id": 2,
+        "Destination_Name": "Rome"
     },
     {
-      Destination_Id : 3,
-      Itinerary_Id : 3,
-      Destination_Name : "Tokyo",
+        "Itinerary_Id": 3,
+        "Destinations_Id": 3,
+        "Destination_Name": "Sydney"
+    },
+    {
+        "Itinerary_Id": 4,
+        "Destinations_Id": 4,
+        "Destination_Name": "Jaipur"
+    },
+    {
+        "Itinerary_Id": 5,
+        "Destinations_Id": 5,
+        "Destination_Name": "Rome"
+    },
+    {
+        "Itinerary_Id": 6,
+        "Destinations_Id": 6,
+        "Destination_Name": "Rome"
     }
-  ]
+];
+  // const handleBack = () => {
+  //   navigate("/")
+  // }
   React.useEffect(() => {
     setList(dummy)
-    // axios.get("http://localhost:3000/getList")
+    // axios.get("http://localhost:3000/checkout")
     // .then(function (response) {
     //   setList(response.data);
     // });
@@ -34,11 +54,11 @@ const Checkout = () => {
 
   function handleLoad(id){
     //make get request to pearl
-    console.log(id);
+    navigate(`/checkout/${id}`)
   }
   return (
     <div>
-      <div className='flex gap-5 justify-center items-center h-[90vh]'>
+      <div className='flex flex-wrap gap-5 justify-center items-center h-[90vh]'>
         {list.length==0 && <Spinner>Loading...</Spinner>}
       {list.length!=0 && list.map((item) => 
       <>
@@ -46,10 +66,11 @@ const Checkout = () => {
       <CardHeader className="absolute z-10 t  op-1 flex-col !items-start">
         <h4 className="text-white font-medium text-large">{item.Destination_Name}</h4>
       </CardHeader>
-      <Image removeWrapper alt="Card background" className="z-0  h-full object-cover" src={`/${item.Destination_Id}.jpg`} />
+      <Image removeWrapper alt="Card background" className="z-0  h-full object-cover" src={`/${item.Destinations_Id}.jpg`} />
       </Card>
       </>)}
       </div>
+      {/* <Button className='mt-10' color='success' variant='ghost' onClick={handleBack}>{"<-"}</Button> */}
     </div>
   )
 }
